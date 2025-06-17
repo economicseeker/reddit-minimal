@@ -1,0 +1,31 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  z-index: 100;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff4500;
+}
+.search-bar {
+  width: 320px;
+  padding: 8px 16px;
+  border: 1px solid #eee;
+  border-radius: 24px;
+  font-size: 1rem;
+}
+.github-logo {
+  color: #222;
+  text-decoration: none;
+  font-size: 1.2rem;
+} 
