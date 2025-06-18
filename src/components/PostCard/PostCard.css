@@ -1,34 +1,132 @@
 .post-card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border-radius: 4px;
+  background: #FFF;
+  box-shadow: 0px 1px 4px 1px rgba(46, 46, 46, 0.15);
+  transition: box-shadow 0.777s cubic-bezier(0.23, 1, 0.32, 1), transform 0.444s cubic-bezier(0.23, 1, 0.32, 1);
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
+
+.post-card:hover {
+  border-radius: 4px;
+  background: #FFF;
+  box-shadow: 0px 4px 16px 4px rgba(46, 46, 46, 0.20);
+}
+
 .post-meta {
   display: flex;
   gap: 8px;
   font-size: 0.95rem;
   color: #888;
+  align-items: center;
 }
+
 .post-title {
   margin: 8px 0 0 0;
-  font-size: 1.2rem;
-  color: #222;
+  color: #1A1D1F;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: "Reddit Sans";
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30.742px;
 }
+
 .post-body {
   margin: 0 0 8px 0;
-  color: #444;
-}
-.post-link {
-  color: #ff4500;
-  text-decoration: none;
+  color: #333637;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: "Reddit Sans";
+  font-size: 17px;
+  font-style: normal;
   font-weight: 500;
-  margin-top: 8px;
-  align-self: flex-start;
+  line-height: 27.506px;
 }
+
+.post-link {
+  color: #1A1D1F;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: "Reddit Sans";
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+  text-decoration-color: #1A1D1F;
+}
+
 .post-link:hover {
   text-decoration: underline;
+}
+
+.post-link-reddit {
+  color: #FF4500;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: "Reddit Sans";
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+  text-decoration-color: #FF4500;
+}
+
+.post-author {
+  color: #1A1D1F;
+  font-family: "Reddit Sans";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.post-subreddit {
+  color: #7D7D7D;
+  font-family: "Reddit Sans";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.post-time {
+  margin-left: auto;
+  color: #7D7D7D;
+  text-align: right;
+  font-family: "Reddit Sans";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.post-divider {
+  width: 100%;
+  height: 1px;
+  background: #E1E1E1;
+  margin: 8px 0px 0px 0px;
+}
+
+.post-user-avatar {
+  width: 32px;
+  height: 32px;
+  margin-left: 0;
+  flex-shrink: 0;
+  display: block;
 } 

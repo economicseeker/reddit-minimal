@@ -1,16 +1,23 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import HomePage from './pages/HomePage';
+import SubredditPage from './pages/SubredditPage';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <main>
-        <HomePage />
-      </main>
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/r/:subreddit" element={<SubredditPage />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 
