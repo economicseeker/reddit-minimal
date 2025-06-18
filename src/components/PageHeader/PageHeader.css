@@ -23,7 +23,14 @@
 }
 .page-header-content h2 {
   margin: 0 0 12px 0;
-  font-size: 2rem;
+  color: #7D7D7D;
+  font-family: 'Reddit Sans', sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  leading-trim: both;
+  text-edge: cap;
 }
 .page-header-content p {
   margin: 0;
