@@ -9,6 +9,27 @@
   gap: 8px;
 }
 
+/* Tablet Styles */
+@media screen and (max-width: 1024px) {
+  .post-card {
+    padding: 20px;
+  }
+
+  .post-title {
+    font-size: 17px;
+    line-height: 26px;
+  }
+
+  .post-body {
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .post-meta {
+    font-size: 0.9rem;
+  }
+}
+
 .post-card:hover {
   border-radius: 4px;
   background: #FFF;

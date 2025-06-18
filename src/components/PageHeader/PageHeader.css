@@ -1,6 +1,7 @@
 .page-header {
   width: 736px;
-  height: 416px;
+  min-height: 416px;
+  max-height: 600px;
   display: flex;
   flex-direction: column;
   background: #FFF;
@@ -13,6 +14,7 @@
   position: relative;
   width: 100%;
   height: 204px;
+  flex-shrink: 0;
 }
 .page-header-image-overlay {
   position: absolute;
@@ -34,6 +36,7 @@
   position: absolute;
   bottom: 83px;
   left: 24px;
+  right: 24px;
   color: #FFF;
   leading-trim: both;
   text-edge: cap;
@@ -43,11 +46,15 @@
   font-weight: 800;
   line-height: normal;
   z-index: 2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .page-header-subtitle {
   position: absolute;
   bottom: 63px;
   left: 24px;
+  right: 24px;
   leading-trim: both;
   text-edge: cap;
   font-family: "Reddit Sans";
@@ -56,6 +63,9 @@
   font-weight: 700;
   line-height: normal;
   z-index: 2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .page-header-subtitle .reddit {
   color: #FF4500;
@@ -65,10 +75,11 @@
 }
 .page-header-content {
   padding: 24px;
-  height: 212px;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  overflow: hidden;
 }
 .page-header-content h2 {
   margin: 0 0 12px 0;
@@ -80,6 +91,9 @@
   line-height: normal;
   leading-trim: both;
   text-edge: cap;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .page-header-content p {
   margin: 0;
@@ -89,11 +103,17 @@
   font-style: normal;
   font-weight: 500;
   line-height: 27.506px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
 }
 .page-header-member-count {
   position: absolute;
   bottom: 23px;
   left: 24px;
+  right: 24px;
   color: #FFF;
   font-family: "Reddit Sans";
   font-size: 13px;
@@ -101,4 +121,7 @@
   font-weight: 600;
   line-height: normal;
   z-index: 2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 } 

@@ -22,6 +22,7 @@ main {
   justify-content: center;
   min-height: calc(100vh - 64px);
   margin-top: 96px;
+  padding: 0 16px;
 }
 
 /* Layout styles moved from PageLayout.css */
@@ -33,6 +34,32 @@ main {
 
 .feed-section {
   width: 736px;
+}
+
+/* Tablet Styles */
+@media screen and (max-width: 1024px) {
+  main {
+    margin-top: 80px;
+  }
+
+  .page-layout {
+    width: 100%;
+    max-width: 768px;
+    gap: 24px;
+  }
+
+  .page-header {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .feed-section {
+    width: 66.666%;
+  }
+
+  .sidebar {
+    width: 33.333%;
+  }
 }
 
 .App-header {
