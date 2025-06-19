@@ -75,6 +75,22 @@ main {
   }
 }
 
+/* Mobile Styles */
+@media screen and (max-width: 600px) {
+  .page-layout {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+    flex-direction: column;
+    gap: 0;
+  }
+  .feed-section {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+  }
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
