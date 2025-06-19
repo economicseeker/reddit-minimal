@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import HomePage from './pages/HomePage';
 import SubredditPage from './pages/SubredditPage';
 import SearchResultsPage from './pages/SearchResultsPage';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/r/:subreddit" element={<SubredditPage />} />
             <Route path="/search" element={<SearchResultsPage />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </main>
       </div>
