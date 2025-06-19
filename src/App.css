@@ -30,10 +30,15 @@ main {
   width: 1120px;
   display: flex;
   gap: 32px;
+  flex-direction: row;
 }
 
 .feed-section {
   width: 736px;
+}
+
+.sidebar {
+  width: 352px;
 }
 
 /* Tablet Styles */
@@ -45,7 +50,15 @@ main {
   .page-layout {
     width: 100%;
     max-width: 768px;
+    gap: 0;
+    flex-direction: column;
+  }
+
+  .feed-sidebar-row {
+    display: flex;
+    flex-direction: row;
     gap: 24px;
+    width: 100%;
   }
 
   .page-header {

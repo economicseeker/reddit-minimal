@@ -64,6 +64,19 @@ const subredditData = {
   }
 };
 
+function useIsTablet() {
+  const [isTablet, setIsTablet] = React.useState(false);
+  React.useEffect(() => {
+    function handleResize() {
+      setIsTablet(window.innerWidth <= 1024);
+    }
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  return isTablet;
+}
+
 const SubredditPage = () => {
   const { subreddit } = useParams();
   const info = subredditData[subreddit] || {
@@ -73,6 +86,27 @@ const SubredditPage = () => {
     description: 'No description available.',
     image: 'https://placehold.co/736x204'
   };
+  const isTablet = useIsTablet();
+
+  if (isTablet) {
+    return (
+      <div className="page-layout">
+        <PageHeader
+          image={info.image}
+          title={info.title}
+          subtitle={info.subtitle}
+          memberCount={info.memberCount}
+          description={info.description}
+        />
+        <div className="feed-sidebar-row">
+          <div className="feed-section">
+            <PostFeed subreddit={subreddit} />
+          </div>
+          <Sidebar />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="page-layout">

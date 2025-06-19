@@ -9,11 +9,13 @@
 
 /* Tablet Styles */
 @media screen and (max-width: 1024px) {
+  /*
   .sidebar {
     width: 100%;
     padding: 20px;
     height: fit-content;
   }
+  */
 
   .sidebar-button {
     width: 100%;
@@ -34,6 +36,12 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 12px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sidebar {
+    display: none !important;
   }
 }
 
