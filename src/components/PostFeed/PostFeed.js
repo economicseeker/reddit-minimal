@@ -1,29 +1,31 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectPosts, loadMorePosts, filterBySubreddit, resetPosts } from '../../store/features/postsSlice';
 import PostCard from '../PostCard/PostCard';
 import './PostFeed.css';
-import allPosts from '../../data/posts';
-
-const POSTS_PER_LOAD = 5;
 
 const PostFeed = ({ subreddit }) => {
-  const posts = subreddit
-    ? allPosts.filter(post => post.subreddit.toLowerCase() === subreddit.toLowerCase())
-    : allPosts;
+  const dispatch = useDispatch();
+  const posts = useSelector(selectPosts);
 
-  const [visibleCount, setVisibleCount] = useState(POSTS_PER_LOAD);
+  // Filter posts by subreddit or reset
+  useEffect(() => {
+    if (subreddit) {
+      dispatch(filterBySubreddit(subreddit));
+    } else {
+      dispatch(resetPosts());
+    }
+  }, [dispatch, subreddit]);
 
+  // Infinite scroll
   const handleScroll = useCallback(() => {
     if (
       window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 &&
-      visibleCount < posts.length
+      posts.length > 0
     ) {
-      setVisibleCount((prev) => Math.min(prev + POSTS_PER_LOAD, posts.length));
+      dispatch(loadMorePosts());
     }
-  }, [visibleCount, posts.length]);
-
-  useEffect(() => {
-    setVisibleCount(POSTS_PER_LOAD);
-  }, [subreddit]);
+  }, [dispatch, posts.length]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -32,7 +34,7 @@ const PostFeed = ({ subreddit }) => {
 
   return (
     <div className="post-feed">
-      {posts.slice(0, visibleCount).map(post => <PostCard key={post.id} post={post} />)}
+      {posts.map(post => <PostCard key={post.id} post={post} />)}
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import PageHeader from '../components/PageHeader/PageHeader';
 import PostFeed from '../components/PostFeed/PostFeed';
 import Sidebar from '../components/Sidebar/Sidebar';
+import { useIsTablet } from '../helper/hooks';
 
 // Example data for demonstration
 const subredditData = {
@@ -63,19 +64,6 @@ const subredditData = {
     image: 'https://placehold.co/736x204/ffb700/fff?text=Palworld'
   }
 };
-
-function useIsTablet() {
-  const [isTablet, setIsTablet] = React.useState(false);
-  React.useEffect(() => {
-    function handleResize() {
-      setIsTablet(window.innerWidth <= 1024);
-    }
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-  return isTablet;
-}
 
 const SubredditPage = () => {
   const { subreddit } = useParams();

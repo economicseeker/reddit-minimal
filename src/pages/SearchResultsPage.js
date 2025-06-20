@@ -1,26 +1,11 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectSearchResults, performSearch } from '../store/features/searchSlice';
 import Sidebar from '../components/Sidebar/Sidebar';
 import PostCard from '../components/PostCard/PostCard';
 import './SearchResultsPage.css';
-import allPosts from '../data/posts';
-
-function useIsTablet() {
-  const [isTablet, setIsTablet] = React.useState(false);
-  React.useEffect(() => {
-    function handleResize() {
-      setIsTablet(window.innerWidth <= 1024);
-    }
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-  return isTablet;
-}
-
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
+import { useIsTablet } from '../helper/hooks';
 
 const SearchBar = ({ searchTerm }) => (
   <div className="search-results-bar">
@@ -45,15 +30,29 @@ const NoResultsBar = ({ searchTerm }) => (
 
 const SearchResultsPage = () => {
   const isTablet = useIsTablet();
-  const query = useQuery();
-  const searchTerm = query.get('q') || '';
-  const filteredPosts = allPosts.filter(post => post.title.toLowerCase().includes(searchTerm.toLowerCase()));
+  const [searchParams] = useSearchParams();
+  const urlSearchTerm = searchParams.get('q') || '';
+  const dispatch = useDispatch();
+  const searchResults = useSelector(selectSearchResults);
 
-  if (filteredPosts.length === 0) {
+  // Perform search when URL query changes
+  useEffect(() => {
+    if (urlSearchTerm) {
+      dispatch(performSearch(urlSearchTerm));
+    }
+  }, [dispatch, urlSearchTerm]);
+
+  const resultsContent = (
+    <div className="post-feed">
+      {searchResults.map(post => <PostCard key={post.id} post={post} />)}
+    </div>
+  );
+
+  if (!searchResults || searchResults.length === 0) {
     if (isTablet) {
       return (
         <div className="page-layout">
-          <NoResultsBar searchTerm={searchTerm} />
+          <NoResultsBar searchTerm={urlSearchTerm} />
           <div className="feed-sidebar-row">
             <div className="feed-section"></div>
             <Sidebar />
@@ -64,23 +63,17 @@ const SearchResultsPage = () => {
     return (
       <div className="page-layout">
         <div className="feed-section">
-          <NoResultsBar searchTerm={searchTerm} />
+          <NoResultsBar searchTerm={urlSearchTerm} />
         </div>
         <Sidebar />
       </div>
     );
   }
 
-  const resultsContent = (
-    <div className="post-feed">
-      {filteredPosts.map(post => <PostCard key={post.id} post={post} />)}
-    </div>
-  );
-
   if (isTablet) {
     return (
       <div className="page-layout">
-        <SearchBar searchTerm={searchTerm} />
+        <SearchBar searchTerm={urlSearchTerm} />
         <div className="feed-sidebar-row">
           <div className="feed-section">
             {resultsContent}
@@ -94,7 +87,7 @@ const SearchResultsPage = () => {
   return (
     <div className="page-layout">
       <div className="feed-section">
-        <SearchBar searchTerm={searchTerm} />
+        <SearchBar searchTerm={urlSearchTerm} />
         {resultsContent}
       </div>
       <Sidebar />

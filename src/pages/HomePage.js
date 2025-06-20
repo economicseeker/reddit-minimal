@@ -2,19 +2,7 @@ import React from 'react';
 import PageHeader from '../components/PageHeader/PageHeader';
 import PostFeed from '../components/PostFeed/PostFeed';
 import Sidebar from '../components/Sidebar/Sidebar';
-
-function useIsTablet() {
-  const [isTablet, setIsTablet] = React.useState(false);
-  React.useEffect(() => {
-    function handleResize() {
-      setIsTablet(window.innerWidth <= 1024);
-    }
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-  return isTablet;
-}
+import { useIsTablet } from '../helper/hooks';
 
 const HomePage = () => {
   const isTablet = useIsTablet();
