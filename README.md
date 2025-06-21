@@ -1,70 +1,192 @@
-# Getting Started with Create React App
+# Reddit Minimal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive Reddit client built with React and Redux that provides a clean, minimal interface for browsing Reddit content. This project integrates with the Reddit API to deliver real-time posts, subreddits, and search functionality.
 
-## Available Scripts
+[Live Demo](https://reddit-minimal.vercel.app)
 
-In the project directory, you can run:
+## Preview
 
-### `npm start`
+### Desktop
+![Desktop Homepage](mockups/desktop/Web%20-%20Home.png)
+![Desktop Subreddit](mockups/desktop/Web%20-%20Subreddit.png)
+![Desktop Search Results](mockups/desktop/Web%20-%20Results.png)
+![Desktop Error Page](mockups/desktop/Web%20-%20Error%20Page.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Tablet
+![Tablet Homepage](mockups/tablet/Tablet%20-%20Home.png)
+![Tablet Subreddit](mockups/tablet/Tablet%20-%20Subreddit.png)
+![Tablet Search Results](mockups/tablet/Tablet%20-%20Results.png)
+![Tablet Error Page](mockups/tablet/Tablet%20-%20Error%20Page.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Mobile
+![Mobile Homepage](mockups/mobile/Mobile%20-%20Homepage.png)
+![Mobile Subreddit](mockups/mobile/Mobile%20-%20Subreddit.png)
+![Mobile Search Results](mockups/mobile/Mobile%20-%20Results.png)
+![Mobile Menu](mockups/mobile/Mobile%20-%20Menu.png)
+![Mobile Error Page](mockups/mobile/Mobile%20-%20Error%20Page.png)
 
-### `npm test`
+## Technologies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React 18** - Modern React with hooks and functional components
+- **Redux Toolkit** - State management with async thunks
+- **React Router** - Client-side routing
+- **CSS3** - Custom styling with CSS variables and responsive design
+- **Reddit JSON API** - Real-time data from Reddit
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🏠 **Homepage**
+- Combined feed of posts from popular subreddits
+- Real-time data from Reddit API
+- Infinite scrolling with pagination
+- Loading states and error handling
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 🔍 **Search Functionality**
+- Search posts across all subreddits
+- Real-time search results
+- Search history and suggestions
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 📱 **Subreddit Pages**
+- Individual subreddit feeds
+- Subreddit information (member count, description)
+- Dynamic subreddit banners and icons
+- Real-time post updates
 
-### `npm run eject`
+### 🎨 **Responsive Design**
+- **Desktop**: Full layout with sidebar
+- **Tablet**: Optimized layout for medium screens
+- **Mobile**: Mobile-first design with offscreen menu
+- Touch-friendly interactions
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 🎯 **User Experience**
+- Smooth animations and transitions
+- Loading spinners and error states
+- Retry functionality for failed requests
+- Keyboard navigation support
+- Accessible design patterns
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 🔧 **Technical Features**
+- Redux state management with async thunks
+- Error boundaries and fallback UI
+- Optimized performance with React.memo
+- Clean component architecture
+- Type-safe Redux selectors
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Getting Started
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
 
-## Learn More
+### Installation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Clone the repository
+```bash
+git clone https://github.com/economicseeker/reddit-minimal.git
+cd reddit-minimal
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Install dependencies
+```bash
+npm install
+```
 
-### Code Splitting
+3. Start the development server
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser
 
-### Analyzing the Bundle Size
+### Available Scripts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- `npm start` - Runs the app in development mode
+- `npm run build` - Builds the app for production
+- `npm test` - Launches the test runner
+- `npm run eject` - Ejects from Create React App
 
-### Making a Progressive Web App
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ErrorMessage/   # Error display component
+│   ├── Header/         # Navigation header
+│   ├── LoadingSpinner/ # Loading indicator
+│   ├── PageHeader/     # Page title and info
+│   ├── PostCard/       # Individual post display
+│   ├── PostFeed/       # Post list container
+│   └── Sidebar/        # Subreddit navigation
+├── pages/              # Page components
+│   ├── ErrorPage/      # 404 and error pages
+│   ├── HomePage.js     # Homepage
+│   ├── SearchResultsPage.js
+│   └── SubredditPage.js
+├── services/           # API services
+│   └── redditApi.js    # Reddit API integration
+├── store/              # Redux store
+│   ├── features/       # Redux slices
+│   └── store.js        # Store configuration
+└── helper/             # Utility functions
+    └── hooks.js        # Custom React hooks
+```
 
-### Advanced Configuration
+## API Integration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The app integrates with Reddit's JSON API to fetch:
+- **Posts**: Hot posts from subreddits and front page
+- **Subreddits**: Popular subreddits with metadata
+- **Search**: Cross-subreddit search functionality
+- **Subreddit Info**: Detailed subreddit information
 
-### Deployment
+### API Endpoints Used
+- `/hot.json` - Hot posts from subreddits
+- `/subreddits/popular.json` - Popular subreddits
+- `/r/{subreddit}/about.json` - Subreddit information
+- `/search.json` - Search functionality
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Responsive Design
 
-### `npm run build` fails to minify
+The app is built with a mobile-first approach:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Mobile (< 600px)**: Stacked layout with offscreen menu
+- **Tablet (600px - 1024px)**: Hybrid layout with conditional sidebar
+- **Desktop (> 1024px)**: Full layout with persistent sidebar
+
+## Performance Optimizations
+
+- **Lazy Loading**: Components load on demand
+- **Infinite Scrolling**: Efficient post loading
+- **Memoization**: React.memo for expensive components
+- **Optimized Images**: Proper image sizing and fallbacks
+- **Redux Optimization**: Selective state updates
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- [Reddit API](https://github.com/reddit-archive/reddit/wiki/JSON) for providing the data
+- [React](https://reactjs.org/) for the amazing framework
+- [Redux Toolkit](https://redux-toolkit.js.org/) for state management
+- [React Router](https://reactrouter.com/) for routing
+
+---
+
+Built with ❤️ by [@economicseeker](https://github.com/economicseeker)
