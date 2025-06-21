@@ -24,8 +24,10 @@ const PostCard = ({ post }) => (
           e.target.src = UserAvatar; // Fallback to default avatar if API avatar fails to load
         }}
       />
-      <span className="post-author">{post.author}</span>
-      <span className="post-subreddit">to r/{post.subreddit}</span>
+      <div className="post-info">
+        <span className="post-author">{post.author}</span>
+        <span className="post-subreddit">to r/{post.subreddit}</span>
+      </div>
       <span className="post-time">{abbreviateTime(post.time)}</span>
     </div>
     <div className="post-divider" />

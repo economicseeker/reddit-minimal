@@ -9,7 +9,6 @@ import SearchIconActive from './images/logos/search-icons/search-active.svg';
 import GithubLogo from './images/logos/github-logo/Logo.svg';
 import MenuIcon from './images/logos/mobile-menu-icons/menu.svg';
 import CloseIcon from './images/logos/mobile-menu-icons/close.svg';
-import Sidebar from '../Sidebar/Sidebar';
 import subredditIcon from '../Sidebar/images/logos/subreddit-icon.svg';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
