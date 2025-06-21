@@ -6,12 +6,15 @@
   justify-content: center;
   background: #fafbfc;
   padding: 32px;
+  font-family: var(--font-main);
 }
 
 .error-page-title {
   font-size: 48px;
   color: #FF4500;
   margin-bottom: 16px;
+  font-family: var(--font-main);
+  font-weight: 700;
 }
 
 .error-page-message {
@@ -19,6 +22,8 @@
   color: #1A1D1F;
   margin-bottom: 32px;
   text-align: center;
+  font-family: var(--font-main);
+  font-weight: 500;
 }
 
 .error-page-btn {
@@ -27,9 +32,11 @@
   background: #FF4500;
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 9999px;
   cursor: pointer;
   transition: background 0.2s;
+  font-family: var(--font-main);
+  font-weight: 600;
 }
 
 .error-page-btn:hover {

@@ -1,0 +1,84 @@
+.error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  gap: var(--space-md);
+  text-align: center;
+  background-color: #fdf2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--border-radius);
+  margin: var(--space-md);
+}
+
+.error-icon {
+  font-size: 2rem;
+  animation: shake 0.5s ease-in-out;
+}
+
+.error-text {
+  color: #e74c3c;
+  font-family: var(--font-main);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.error-retry-button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 70px;
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-main);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 100px;
+}
+
+.error-retry-button:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.error-retry-button:active {
+  transform: translateY(0);
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* Small variant for inline errors */
+.error-message.small {
+  padding: var(--space-md);
+  gap: var(--space-sm);
+  margin: var(--space-sm);
+}
+
+.error-message.small .error-icon {
+  font-size: 1.5rem;
+}
+
+.error-message.small .error-text {
+  font-size: var(--font-size-sm);
+}
+
+.error-message.small .error-retry-button {
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--font-size-xs);
+  min-width: 80px;
+} 

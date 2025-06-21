@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectSearchResults, performSearch } from '../store/features/searchSlice';
 import Sidebar from '../components/Sidebar/Sidebar';
-import PostCard from '../components/PostCard/PostCard';
+import PostFeed from '../components/PostFeed/PostFeed';
 import './SearchResultsPage.css';
 import { useIsTablet } from '../helper/hooks';
 
@@ -32,43 +30,6 @@ const SearchResultsPage = () => {
   const isTablet = useIsTablet();
   const [searchParams] = useSearchParams();
   const urlSearchTerm = searchParams.get('q') || '';
-  const dispatch = useDispatch();
-  const searchResults = useSelector(selectSearchResults);
-
-  // Perform search when URL query changes
-  useEffect(() => {
-    if (urlSearchTerm) {
-      dispatch(performSearch(urlSearchTerm));
-    }
-  }, [dispatch, urlSearchTerm]);
-
-  const resultsContent = (
-    <div className="post-feed">
-      {searchResults.map(post => <PostCard key={post.id} post={post} />)}
-    </div>
-  );
-
-  if (!searchResults || searchResults.length === 0) {
-    if (isTablet) {
-      return (
-        <div className="page-layout">
-          <NoResultsBar searchTerm={urlSearchTerm} />
-          <div className="feed-sidebar-row">
-            <div className="feed-section"></div>
-            <Sidebar />
-          </div>
-        </div>
-      );
-    }
-    return (
-      <div className="page-layout">
-        <div className="feed-section">
-          <NoResultsBar searchTerm={urlSearchTerm} />
-        </div>
-        <Sidebar />
-      </div>
-    );
-  }
 
   if (isTablet) {
     return (
@@ -76,7 +37,7 @@ const SearchResultsPage = () => {
         <SearchBar searchTerm={urlSearchTerm} />
         <div className="feed-sidebar-row">
           <div className="feed-section">
-            {resultsContent}
+            <PostFeed searchQuery={urlSearchTerm} />
           </div>
           <Sidebar />
         </div>
@@ -88,7 +49,7 @@ const SearchResultsPage = () => {
     <div className="page-layout">
       <div className="feed-section">
         <SearchBar searchTerm={urlSearchTerm} />
-        {resultsContent}
+        <PostFeed searchQuery={urlSearchTerm} />
       </div>
       <Sidebar />
     </div>

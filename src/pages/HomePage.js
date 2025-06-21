@@ -3,6 +3,7 @@ import PageHeader from '../components/PageHeader/PageHeader';
 import PostFeed from '../components/PostFeed/PostFeed';
 import Sidebar from '../components/Sidebar/Sidebar';
 import { useIsTablet } from '../helper/hooks';
+import highSnooImage from '../components/PageHeader/images/high-snoo.png';
 
 const HomePage = () => {
   const isTablet = useIsTablet();
@@ -11,7 +12,7 @@ const HomePage = () => {
     return (
       <div className="page-layout">
         <PageHeader
-          image="https://placehold.co/736x204"
+          image={highSnooImage}
           title="Home"
           subtitle="RedditMinimal"
           memberCount="420M members"
@@ -31,7 +32,7 @@ const HomePage = () => {
     <div className="page-layout">
       <div className="feed-section">
         <PageHeader
-          image="https://placehold.co/736x204"
+          image={highSnooImage}
           title="Home"
           subtitle="RedditMinimal"
           memberCount="420M members"

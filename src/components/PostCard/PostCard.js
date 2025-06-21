@@ -16,15 +16,27 @@ function abbreviateTime(time) {
 const PostCard = ({ post }) => (
   <div className="post-card">
     <div className="post-meta">
-      <img src={UserAvatar} alt="User" className="post-user-avatar" />
+      <img 
+        src={post.authorAvatar || UserAvatar} 
+        alt="User" 
+        className="post-user-avatar"
+        onError={(e) => {
+          e.target.src = UserAvatar; // Fallback to default avatar if API avatar fails to load
+        }}
+      />
       <span className="post-author">{post.author}</span>
       <span className="post-subreddit">to r/{post.subreddit}</span>
       <span className="post-time">{abbreviateTime(post.time)}</span>
     </div>
     <div className="post-divider" />
     <h3 className="post-title">{post.title}</h3>
-    <p className="post-body">{post.body}</p>
-    <a className="post-link" href="#">
+    {post.body && <p className="post-body">{post.body}</p>}
+    <a 
+      className="post-link" 
+      href={post.permalink ? `https://www.reddit.com${post.permalink}` : '#'}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       See this post on <span className="post-link-reddit">Reddit</span> &rarr;
     </a>
   </div>

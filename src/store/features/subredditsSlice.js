@@ -1,17 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { fetchPopularSubreddits } from '../../services/redditApi';
+
+// Async thunk for fetching popular subreddits
+export const fetchSubreddits = createAsyncThunk(
+  'subreddits/fetchSubreddits',
+  async (_, { rejectWithValue }) => {
+    try {
+      const subreddits = await fetchPopularSubreddits(20); // Fetch 20 popular subreddits
+      return subreddits;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
 const initialState = {
-  subreddits: [
-    'Bitcoin',
-    'NoStupidQuestions',
-    'BaldursGate3',
-    'facepalm',
-    'interestingasfuck',
-    'Damnthatsinteresting',
-    'LivestreamFail',
-    'Palworld'
-  ],
-  currentSubreddit: null,
+  subreddits: [],
   loading: false,
   error: null
 };
@@ -19,35 +23,26 @@ const initialState = {
 const subredditsSlice = createSlice({
   name: 'subreddits',
   initialState,
-  reducers: {
-    setCurrentSubreddit: (state, action) => {
-      state.currentSubreddit = action.payload;
-    },
-    clearCurrentSubreddit: (state) => {
-      state.currentSubreddit = null;
-    },
-    addSubreddit: (state, action) => {
-      if (!state.subreddits.includes(action.payload)) {
-        state.subreddits.push(action.payload);
-      }
-    },
-    removeSubreddit: (state, action) => {
-      state.subreddits = state.subreddits.filter(sub => sub !== action.payload);
-      if (state.currentSubreddit === action.payload) {
-        state.currentSubreddit = null;
-      }
-    }
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchSubreddits.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchSubreddits.fulfilled, (state, action) => {
+        state.loading = false;
+        state.subreddits = action.payload;
+      })
+      .addCase(fetchSubreddits.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
   }
 });
 
-export const {
-  setCurrentSubreddit,
-  clearCurrentSubreddit,
-  addSubreddit,
-  removeSubreddit
-} = subredditsSlice.actions;
-
 export const selectSubreddits = (state) => state.subreddits.subreddits;
-export const selectCurrentSubreddit = (state) => state.subreddits.currentSubreddit;
+export const selectSubredditsLoading = (state) => state.subreddits.loading;
+export const selectSubredditsError = (state) => state.subreddits.error;
 
 export default subredditsSlice.reducer; 
