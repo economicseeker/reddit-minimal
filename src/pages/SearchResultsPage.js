@@ -9,17 +9,7 @@ const SearchBar = ({ searchTerm }) => (
   <div className="search-results-bar">
     <span className="search-bar-text">
       Search results for 
-      <span className="search-bar-keyword"> ‘{searchTerm}’</span> in all subreddits in 
-      <span className="search-bar-reddit"> Reddit</span>
-      <span className="search-bar-minimal">Minimal</span>
-    </span>
-  </div>
-);
-
-const NoResultsBar = ({ searchTerm }) => (
-  <div className="search-results-bar">
-    <span className="search-bar-text">
-      No results for <span className="search-bar-keyword">‘{searchTerm}’</span> in all subreddits in
+      <span className="search-bar-keyword"> '{searchTerm}'</span> in all subreddits in 
       <span className="search-bar-reddit"> Reddit</span>
       <span className="search-bar-minimal">Minimal</span>
     </span>

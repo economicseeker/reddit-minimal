@@ -7,10 +7,7 @@ import {
   selectAfter, 
   selectVisibleCount,
   selectTotalPosts,
-  selectCurrentSubreddit,
-  selectSearchQuery,
   loadMorePosts, 
-  filterBySubreddit, 
   resetPosts,
   fetchPosts,
   searchPostsAsync
@@ -28,8 +25,6 @@ const PostFeed = ({ subreddit, searchQuery }) => {
   const after = useSelector(selectAfter);
   const visibleCount = useSelector(selectVisibleCount);
   const totalPosts = useSelector(selectTotalPosts);
-  const currentSubreddit = useSelector(selectCurrentSubreddit);
-  const currentSearchQuery = useSelector(selectSearchQuery);
 
   // Fetch posts when component mounts or subreddit/search changes
   useEffect(() => {
