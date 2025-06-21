@@ -7,23 +7,43 @@ A modern, responsive Reddit client built with React and Redux that provides a cl
 ## Preview
 
 ### Desktop
-![Desktop Homepage](mockups/desktop/Web%20-%20Home.png)
-![Desktop Subreddit](mockups/desktop/Web%20-%20Subreddit.png)
-![Desktop Search Results](mockups/desktop/Web%20-%20Results.png)
-![Desktop Error Page](mockups/desktop/Web%20-%20Error%20Page.png)
+<table>
+  <tr>
+    <td><img src="mockups/desktop/Web%20-%20Home.png" alt="Desktop Homepage" width="300"></td>
+    <td><img src="mockups/desktop/Web%20-%20Subreddit.png" alt="Desktop Subreddit" width="300"></td>
+  </tr>
+  <tr>
+    <td><img src="mockups/desktop/Web%20-%20Results.png" alt="Desktop Search Results" width="300"></td>
+    <td><img src="mockups/desktop/Web%20-%20Error%20Page.png" alt="Desktop Error Page" width="300"></td>
+  </tr>
+</table>
 
 ### Tablet
-![Tablet Homepage](mockups/tablet/Tablet%20-%20Home.png)
-![Tablet Subreddit](mockups/tablet/Tablet%20-%20Subreddit.png)
-![Tablet Search Results](mockups/tablet/Tablet%20-%20Results.png)
-![Tablet Error Page](mockups/tablet/Tablet%20-%20Error%20Page.png)
+<table>
+  <tr>
+    <td><img src="mockups/tablet/Tablet%20-%20Home.png" alt="Tablet Homepage" width="300"></td>
+    <td><img src="mockups/tablet/Tablet%20-%20Subreddit.png" alt="Tablet Subreddit" width="300"></td>
+  </tr>
+  <tr>
+    <td><img src="mockups/tablet/Tablet%20-%20Results.png" alt="Tablet Search Results" width="300"></td>
+    <td><img src="mockups/tablet/Tablet%20-%20Error%20Page.png" alt="Tablet Error Page" width="300"></td>
+  </tr>
+</table>
 
 ### Mobile
-![Mobile Homepage](mockups/mobile/Mobile%20-%20Homepage.png)
-![Mobile Subreddit](mockups/mobile/Mobile%20-%20Subreddit.png)
-![Mobile Search Results](mockups/mobile/Mobile%20-%20Results.png)
-![Mobile Menu](mockups/mobile/Mobile%20-%20Menu.png)
-![Mobile Error Page](mockups/mobile/Mobile%20-%20Error%20Page.png)
+<table>
+  <tr>
+    <td><img src="mockups/mobile/Mobile%20-%20Homepage.png" alt="Mobile Homepage" width="300"></td>
+    <td><img src="mockups/mobile/Mobile%20-%20Subreddit.png" alt="Mobile Subreddit" width="300"></td>
+  </tr>
+  <tr>
+    <td><img src="mockups/mobile/Mobile%20-%20Results.png" alt="Mobile Search Results" width="300"></td>
+    <td><img src="mockups/mobile/Mobile%20-%20Menu.png" alt="Mobile Menu" width="300"></td>
+  </tr>
+  <tr>
+    <td colspan="2"><img src="mockups/mobile/Mobile%20-%20Error%20Page.png" alt="Mobile Error Page" width="300"></td>
+  </tr>
+</table>
 
 ## Technologies
 
