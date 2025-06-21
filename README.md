@@ -2,7 +2,7 @@
 
 A modern, responsive Reddit client built with React and Redux that provides a clean, minimal interface for browsing Reddit content. This project integrates with the Reddit API to deliver real-time posts, subreddits, and search functionality.
 
-[Live Demo](https://reddit-minimal.vercel.app)
+[Live Demo](https://reddit-minimal-420.netlify.app/)
 
 ## Preview
 
