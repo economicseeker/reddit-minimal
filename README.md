@@ -88,7 +88,6 @@ A modern, responsive Reddit client built with React and Redux that provides a cl
 ### 🔧 **Technical Features**
 - Redux state management with async thunks
 - Error boundaries and fallback UI
-- Optimized performance with React.memo
 - Clean component architecture
 - Type-safe Redux selectors
 
@@ -195,10 +194,6 @@ The app is built with a mobile-first approach:
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
